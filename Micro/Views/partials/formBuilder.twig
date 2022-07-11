@@ -1,0 +1,12 @@
+<div style="margin-bottom: 70px">
+<form id="{{ form.id }}" name="{{ form.name }}" action="{{ form.action }}" method="{{form.method}}" class="builder">
+    <img src="{{ asset(form.logo) }}" style="height: 30px;width: auto;" alt="">
+    <h2>{{ form.label }}</h2>
+    {% for f in fields %}
+        {{ field(f) | raw }}
+    {% endfor %}
+    <hr>
+    <input type="submit" class="btn btn-primary submit_" value="Submit">&emsp;&emsp;&emsp;
+{#    <input type="button" class="btn btn-danger reset_" value="cancel">#}
+</form>
+</div>

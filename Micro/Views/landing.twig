@@ -1,0 +1,41 @@
+{% extends 'layout/master.twig' %}
+{% block head %}
+    <style>
+        .borderLabel{
+            position: relative;
+            padding:1rem;
+            border:2px solid darkcyan;
+            border-radius: 7px;
+            margin:10px;
+        }
+        .borderLabel>label{
+            padding-left: .5rem;
+            padding-right: .5rem;
+            position:absolute;
+            font-weight: bolder;
+            top: -1.5rem;
+            left:1rem;
+            font-size: 2rem;
+            background-color:white;
+        }
+    </style>
+{% endblock head %}
+
+{% block content %}
+<div class="container appContent">
+    <div style="height: 15vh"></div>
+    <div class="row">
+        <div class="col-12">
+            <div class="borderLabel center">
+                <label>Title</label>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate doloremque earum mollitia quod ut! Dolorem ea earum fuga illo ipsa, modi nobis nostrum quam rerum sequi suscipit temporibus vel voluptates!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+{% block scripts %}
+    <script src="{{ asset('js/landing.min.js') }}"></script>
+{% endblock scripts %}

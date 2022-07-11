@@ -1,0 +1,52 @@
+{% extends 'layout/master.twig' %}
+{% block head %}
+    <link rel="stylesheet" href="{{ asset('css/iSelect.min.css') }}">
+{% endblock head %}
+
+{% block content %}
+    <div class="container appContent" >
+        <div class="sectionSeparator"></div>
+        <div class="title">Input Select<small>Boost input select with thumbnails</small></div>
+        <br>
+
+
+        <div class="row">
+            <div class="col-12">
+                <form>
+                    <div class="form-group">
+                        <label for="selectOne">Select <strong>ONE</strong></label>
+                        <select class="form-control" name="select1" id="selectOne">
+                            <option value="0" data-image="http://localhost:5000/images/placeholder.png" >Preferred Language</option>
+                            <option value="1" data-image="http://localhost:5000/images/gb.png" >Option 1</option>
+                            <option value="2" data-image="http://localhost:5000/images/pt.png" >Option 2</option>
+                            <option value="3" data-image="http://localhost:5000/images/fr.png" >Option 3</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="selectMultiple">Select <strong>MULTIPLE</strong></label>
+                        <select multiple class="form-control" name="select2" id="selectMultiple">
+                            <option value="0">Select Some Brands</option>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                            <option value="3">Option 3</option>
+                            <option value="4">Option 4</option>
+                            <option value="5">Option 5</option>
+                            <option value="6">Option 6</option>
+                            <option value="7">Option 7</option>
+                            <option value="8">Option 8</option>
+                            <option value="9">Option 9</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-success" value="Submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block scripts %}
+    <script src="{{ asset('js/iSelect.min.js') }}"></script>
+{% endblock scripts %}
+

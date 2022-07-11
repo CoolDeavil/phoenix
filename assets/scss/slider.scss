@@ -1,0 +1,20 @@
+.slideWrapper {
+  overflow: hidden;
+  //border: solid 1px black;
+  .wrapFilm {
+    display: flex;
+    width: 9999px;
+    //background-color: whitesmoke;
+    //justify-content: space-between;
+    &.slide {
+      transition: 0.7s;
+    }
+    &.reset {
+      transform: translateX(0px);
+    }
+  }
+}
+.noEvents {
+  pointer-events: none;
+}
+

@@ -1,0 +1,98 @@
+
+.uploader{
+
+
+  -webkit-box-shadow: 5px 0 5px -2px rgba(136,136,136,.4);
+  box-shadow: 5px 0 5px -2px rgba(136,136,136,.4);
+  background-color: rgba(0,0,0,0.025);
+
+  .uploadControls {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 2rem;
+    //background-color: #5a6268;
+    li {
+      padding: .5rem;
+      float: left;
+      height: 2rem;
+      width: 3rem;
+      background-color: transparent;
+      margin: .1rem;
+      text-align: center;
+      font-size: 1rem;
+      &:hover {
+        .uploadAll, .removeAll, .addAll, .toggleAll, .cancelAll, .custom-file-upload  {
+          border-radius: 7px;
+          cursor: pointer;
+          background-color: #cccccc;
+        }
+      }
+      .custom-file-upload  {
+        background-color: #a7f4b9;
+        border-radius: 7px;
+      }
+      input[type="file"] {
+        display: none;
+      }
+      label {
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+  }
+}
+
+.report {
+  padding-left: 1rem;
+}
+
+.viewPort {
+  position: relative;
+  display: flex;
+  min-height: 300px;
+  background-color: transparent;
+  .isLoading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: none;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 3;
+    &.on {
+      display: block;
+    }
+    ._progress {
+      margin-left: 45vw;
+      margin-top: 1rem;
+    }
+  }
+  .imageViewPort {
+    background-color: transparent;
+    width: 100%;
+    min-height: 300px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.success {
+  border-radius: 7px;
+  padding: 1rem;
+  color: whitesmoke;
+  display: none;
+  &.done{
+    display: block;
+    background-color: #1c7430;
+  }
+  &.error{
+    display: block;
+    background-color: #ac731e;
+  }
+  .fas {
+    color: orangered;
+  }
+}

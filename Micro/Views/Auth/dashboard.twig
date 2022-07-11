@@ -1,0 +1,199 @@
+{% extends 'layout/master.twig' %}
+{% block head %}
+    <style>
+        .wrapper {
+            width: 100%;
+            padding: 30px;
+            background-color: whitesmoke;
+            box-sizing: border-box;
+            border-radius: 10px;
+            box-shadow:  0 15px 50px rgb(0,0,0.2);
+        }
+        .circle {
+            width: 150px;
+            height: 150px;
+            background: url({{appUser.getavatar()}});
+            {#background: url({{ app_user.avatar }});#}
+            border-radius: 100%;
+            background-size: cover;
+            float: left;
+            shape-outside: circle();
+            margin: 40px 20px 20px 0;
+        }
+        p {
+            padding: 0;
+            margin: 0;
+            line-height: 1.3rem;
+            text-align: justify;
+            text-indent: 0;
+        }
+        hr {
+            color: black;
+            border-top: 1px solid black;
+        }
+        .fa-edit:hover {
+            cursor: pointer;
+        }
+        .fa-edit {
+            color: #008000;
+        }
+        table {
+
+            padding: 20px;
+            margin: 5px 5px 5px 5px ;
+            width: 100%;
+
+        }
+        table thead {
+            font-size: 1rem;
+            background-color: #093030;
+            color: antiquewhite;
+            padding: 5px;
+        }
+
+        td[name="user"] {
+            background-color: #454de3;
+            color: white;
+            padding: 10px;
+        }
+        td[name="lastLog"] {
+            background-color: #777eea;
+            color: white;
+            padding: 10px;
+        }
+        td[name="LastEdit"] {
+            background-color: #a7abec;
+            color: white;
+            padding: 10px;
+        }
+        td[name="created"] {
+            background-color: #d7daf1;
+            color: black;
+            padding: 10px;
+        }
+
+    </style>
+    <link rel="stylesheet" href="{{ asset('css/usrDash.min.css') }}">
+{% endblock head %}
+
+{% block content %}
+    <div class="container appContent">
+        <div class="sectionSeparator"></div>
+        <div class="row">
+            <div class="col-12">
+                <div class="wrapper">
+                    <div class="row">
+                        <div class="col-12">
+                            <div style="display: block">
+                                <h1>{{ user.getName() }}</h1>
+                                <div class="circle"></div>
+                                <h4>About  <i class="fa fa-edit"></i></h4>
+                                <p style="width: 100%">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam officia repellendus sunt voluptatum! Asperiores, aspernatur debitis ducimus enim error fugiat iste modi nostrum obcaecati perferendis, quos similique suscipit voluptatem voluptatibus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aliquid aperiam assumenda dicta doloribus ea explicabo in incidunt modi nemo neque, quaerat quidem quo, repellendus sequi sint suscipit vel voluptas.</p>
+                                <br>
+                            </div>
+
+                            <div style="display: none">
+                                <h4>About  <i class="fa fa-edit"></i><i class="fa fa-refresh"></i></h4>
+                                <textarea name="" id="" cols="100" rows="10" aria-label=""></textarea>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6">
+                            <input type="text" placeholder="user name" aria-label="" class="form-control form-control-sm"
+                            value="{{ user.getName() }}">
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <select class="form-control form-control-sm" id="languageSelector" aria-label="">
+                                    <option value="0" data-image="{{ asset('images/placeholder.png') }}" >Select Preferred Language</option>
+                                    <option value="pt" data-image="{{ asset('images/pt.png') }}" {% if(app_lang == 'pt') %}selected{% endif %}>Portuguese</option>
+                                    <option value="en" data-image="{{ asset('images/en.png') }}" {% if(app_lang == 'en') %}selected{% endif %}>English</option>
+                                    <option value="fr" data-image="{{ asset('images/fr.png') }}" {% if(app_lang == 'fr') %}selected{% endif %}>French</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-10">
+
+
+                            <table>
+                                <thead>
+                                <tr>
+                                    <td> Last Logged </td>
+                                    <td> Last Edited </td>
+                                    <td>Created </td>
+                                </tr>
+                                </thead>
+
+                                    <tr>
+                                        <td name="lastLog">
+                                            {{ user.getTimeFromLastLogged()  }}
+                                        </td>
+                                        <td name="LastEdit">
+                                            {{ user.getTimeFromEdit()  }}
+                                        </td>
+                                        <td name="created">
+                                            {{ user.getTimeFromCreate()  }}
+                                        </td>
+                                    </tr>
+                                
+                            </table>
+
+                            {#                            <span>Last Login : <strong>{{ user.getTimeFromLastLogged() }}</strong></span>#}
+{#                            <br>#}
+{#                            <span>Last Edited : <strong>{{ user.getTimeFromEdit() }}</strong></span>#}
+{#                            <br>#}
+{#                            <span>Created : <strong>{{ user.getTimeFromCreate() }}</strong></span>#}
+                        </div>
+                        <div class="col-2">
+                            <a href="{{ url('authUserService.userAvatarCrop',{ id: id } ) }}" class="btn btn-sm btn-info">Change Avatar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sectionSeparator"></div>
+    </div>
+
+
+{% endblock content %}
+
+{% block scripts %}
+<script>
+    window.baseApp = '{{ app_path }}';
+</script>
+    <script src="{{ asset('js/usrDash.min.js') }}"></script>
+<script>
+
+    // let languageSelector;
+    // let initialValue;
+    // document.ready(function () {
+    //     languageSelector = document.querySelector('#languageSelector');
+    //     let flagWrapper = document.querySelector('.flag_wrapper');
+    //
+    //     initialValue = languageSelector.value;
+    //     flagWrapper.dataset.country = initialValue;
+    //
+    //     flagWrapper.onclick = (e)=>{
+    //         console.log("Update Language....", e.target.dataset.country)
+    //     };
+    //     languageSelector.onchange = (e)=>{
+    //         if(e.target.value === initialValue){
+    //             flagWrapper.dataset.country =e.target.value;
+    //             flagWrapper.classList.remove('save');
+    //             document.querySelector('#langFlag').src = window.baseApp+'images/'+e.target.value+'.png';
+    //             return;
+    //         }
+    //         flagWrapper.classList.add('save');
+    //         flagWrapper.dataset.country =e.target.value;
+    //         document.querySelector('#langFlag').src = window.baseApp+'images/'+e.target.value+'.png';
+    //     };
+    //
+    // });
+</script>
+
+{% endblock scripts %}

@@ -1,0 +1,17 @@
+CREATE TABLE IF NOT EXISTS  `Users` (
+ `id` INTEGER PRIMARY KEY,
+ `name` VARCHAR ( 255 ) NOT NULL,
+ `email` VARCHAR ( 255 ) NOT NULL,
+ `avatar` VARCHAR ( 255 ) NOT NULL,
+ `about` VARCHAR ( 255 ),
+ `language_active` varchar ( 5 ) NOT NULL,
+ `pass` VARCHAR ( 255 ) NOT NULL,
+ `rp_token` VARCHAR ( 255 ),
+ `secret` VARCHAR(8) NULL,
+ `identifier` VARCHAR ( 32 ),
+ `token` VARCHAR ( 32 ),
+ `timeout` INTEGER,
+ `id_pass` VARCHAR ( 255 ),
+ `created` INTEGER,
+ `edited` INTEGER,
+ `lastLogged` INTEGER );

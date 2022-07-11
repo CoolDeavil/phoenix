@@ -1,0 +1,13 @@
+<div class='galRow'>
+    <div class='col-10'>
+        <label>{{ fieldLabel }}&emsp;</label>
+        <select class='form-control' id='language' name='language' title='Language' aria-label="">
+            {% for   key,value in selectItems%}
+                <option value='{{ key }}'>{{ value }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class='col-2'>
+        <img id='langFlag' data-sel='en' src='' alt='' style='height: 30px;width: auto;margin-top: 35px;' title='Preferred Language'>
+    </div>
+</div>

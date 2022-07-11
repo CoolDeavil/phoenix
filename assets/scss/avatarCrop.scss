@@ -1,0 +1,45 @@
+$canvas_width: 800px;
+$canvas_height: 600px;
+
+#canvas {
+  position: relative;
+  background-size: contain;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  display: block;
+  margin: 0;
+  padding: 0;
+  touch-action: none;
+  background-color: whitesmoke;
+  &.dragOver {
+    border: dashed 5px #91d413;
+    background-color: antiquewhite;
+  }
+  &.untouched {
+    background-position: center;
+    width: $canvas_width;
+    height: $canvas_height;
+    background-image: url(../images/drop_area_placeholder.png);
+  }
+}
+
+.box {
+  background: url(../images/crop_circle.png);
+  display: inline-block;
+  width: 250px;
+  height: 250px;
+  &:hover {
+    cursor: crosshair;
+  }
+  &:not(.isDragging){
+    transition: transform 500ms ease-in-out;
+  }
+  &.isDragging {
+    cursor: pointer;
+  }
+}
+
+#cropped {
+  width:250px;
+  height: 250px;
+}

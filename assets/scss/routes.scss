@@ -1,0 +1,50 @@
+
+$mapMethodsLegendColor: #e0950a;
+$page_background: transparent;
+
+// Route Map
+.accordion {
+  display: block;
+  background-color: $page_background;
+  color: $mapMethodsLegendColor;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 1rem;
+  font-weight: bolder;
+  transition: 0.4s;
+}
+
+.isOn, .accordion:hover {
+  color: #ccc;
+  background-color: #506371;
+}
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+}
+
+.routes {
+  width: 100%;
+  tr {
+    background-color:$page_background ;
+    line-height: 2rem;
+    //li {
+    //  line-height: 2rem;
+    //}
+    span {
+      color: antiquewhite;
+    }
+    &:hover {
+      background-color:#506371;
+    }
+  }
+  code {
+    color:  #e0950a;
+  }
+}

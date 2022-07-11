@@ -1,0 +1,96 @@
+
+{% extends 'layout/master.twig' %}
+{% block head %}
+    <link rel="stylesheet" href="{{ asset('css/usrRegister.min.css') }}">
+{% endblock head %}
+
+{% block content %}
+    <div class="container appContent">
+        <div class="sectionSeparator"></div>
+        <form id="trialForm" method="post" action="{{ asset('api/auth') }}">
+            <div class="row">
+                <div class="col-8">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="title">Webing <small>User Registration</small></div>
+                        </div>
+                    </div>
+                    <hr class="formHR">
+                    <div class="form-group">
+                        <input type="text" name="name" class="form-control form-control-sm" placeholder="Your User Name" aria-label="">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" class="form-control form-control-sm" placeholder="Enter email" aria-label="">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="pass" class="form-control form-control-sm" placeholder="Password" aria-label="">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="cPass" class="form-control form-control-sm" placeholder="Confirm the Password" aria-label="">
+                    </div>
+                    <hr>
+                    <div class="form-check">
+                        <input type="checkbox" name="agree" value="on" class="form-check-input largerCheckbox" aria-label="">
+                        <label class="form-check-label">Agree With the site <a href="#">Terms & conditions</a></label>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="form-check">
+                                <input type="checkbox" name="remember" class="form-check-input largerCheckbox" aria-label="">
+                                <label class="form-check-label">Remember Me</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" name="logMe" class="form-check-input largerCheckbox" aria-label="">
+                                <label class="form-check-label">Keep me Logged</label>
+                            </div>
+                        </div>
+                        <div class="col-8">
+                            <div class="publicHazard">
+                                <span>Note:</span>&ensp;This Settings are a security hazard on public computers
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="formHR">
+                    <input type="submit" class="btn btn-primary" name="register" value="REGISTER" style="width: 100%">
+                </div>
+                <div class="col-4">
+                    <br>
+                    <br>
+                    <br>
+
+                    <div class="title">CAPTCHA <small>From Humans to Humans</small></div>
+                    <div style="background-color: whitesmoke">
+                    <img src="{{ captcha | raw }}" id="cImage" alt="" class="img-fluid">
+                    </div>
+                    <hr style="border-bottom: 2px solid darkcyan">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-10">
+                                <input type="text" name="captcha" class="form-control form-control-sm" placeholder="Type the text above" aria-label="">
+                            </div>
+                            <div class="col-2">
+                                <a class="btn" id="resetCaptcha"><i class="fa fa-refresh fa-lg" style="color: #0b7418"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <select name="language" class="" aria-label="" id="lang">
+                            <option value="0" data-image="{{ link('./images/placeholder.png') }}">Select The Language</option>
+                            <option value="pt" data-image="{{ link('./images/pt.png') }}">Portuguese</option>
+                            <option value="en" data-image="{{ link('./images/en.png') }}">English</option>
+                            <option value="fr" data-image="{{ link('./images/fr.png') }}">French</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="sectionSeparator"></div>
+    </div>
+{% endblock content %}
+
+{% block scripts %}
+    <script src="{{ asset('/js/usrRegister.min.js') }}"></script>
+{% endblock scripts %}
+

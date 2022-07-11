@@ -1,0 +1,42 @@
+{% extends 'layout/master.twig' %}
+{% block head %}
+    <link rel="stylesheet" href="{{ asset('css/scrollBox.min.css') }}">
+{% endblock head %}
+
+{% block content %}
+    <div class="container appContent" >
+        <div class="sectionSeparator"></div>
+        <div class="title">ScrollBox <small>Enable navigation on an list element viewport </small></div>
+        <hr>
+        <pre><code>
+const scroll = new ScrollBox({
+    anchor: 'scroll',
+    listMax: 10,
+    cssActive: 'active',
+    listCSS: 'countryList',
+});    </code></pre>
+    <div class="row">
+        <div class="col-12">
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" id="load" class="btn btn-success">Load</button>
+                <button type="button" id="clear" class="btn btn-danger">Clear</button>
+                <button type="button" id="next" class="btn btn-info">Next</button>
+                <button type="button" id="previous" class="btn btn-info">Previous</button>
+            </div>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12" style="min-height: 800px">
+            <div id="scroll"></div>
+        </div>
+    </div>
+
+    </div>
+
+{% endblock content %}
+
+{% block scripts %}
+    <script src="{{ asset('js/scrollBox.min.js') }}"></script>
+{% endblock scripts %}
+

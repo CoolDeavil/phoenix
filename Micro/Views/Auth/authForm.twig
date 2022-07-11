@@ -1,0 +1,57 @@
+{% extends 'layout/master.twig' %}
+{% block head %}
+    <link rel="stylesheet" href="{{ asset(pageCSS) }}">
+    <style>
+        #resetCaptcha {
+            padding: 7px;
+            border-radius: 5px;
+            background-color: darkgray;
+        }
+        #resetCaptcha:hover {
+            cursor: pointer;
+        }
+
+    </style>
+{% endblock head %}
+
+{% block content %}
+    <div class="container appContent">
+        <div class="galRow">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <div class="galRow" style="margin-top: 20px;">
+                    <div class="col-12">
+                        {% if(isLogIn == true)  %}
+                            <div class="testUser" style="display: flex">
+                                <div><i class="fa fa-user fa-3x"></i>&emsp;</div>
+                                <ul style="list-style: none; padding: 0; margin: 0">
+                                    <li><strong>Email</strong>: <code>john@mail.com</code></li>
+                                    <li><strong>Pass</strong>: <code>John0000</code></li>
+                                </ul>
+                            </div>
+                            <div style="height: 30px"></div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-4"></div>
+        </div>
+        <div class="galRow">
+            <div class="col-2">
+            </div>
+            <div class="col-8">
+                {{ formTemplate | raw }}
+            </div>
+            <div class="col-2"></div>
+        </div>
+    </div>
+{% endblock content %}
+{% block scripts %}
+    <script>
+        window.formDataJson = {{ oldData | raw }};
+        window.validationErrors = {{ errors | raw }};
+        window.assetBaseFolder = '{{ assetBaseFolder | raw }}';
+        window.resetCaptcha_ = '{{ url('authUserService.resetCaptcha') }}';
+    </script>
+    <script src="{{ asset(pageScript) }}"></script>
+{% endblock scripts %}

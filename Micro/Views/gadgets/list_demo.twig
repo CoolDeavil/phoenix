@@ -1,0 +1,18 @@
+{% extends 'layout/master.twig' %}
+{% block head %}
+    <link rel="stylesheet" href="{{ asset('css/midnight.min.css') }}">
+{% endblock head %}
+
+{% block content %}
+    <div class="container appContent" >
+        <div class="sectionSeparator"></div>
+        <div class="title">EasyList<small>Autocomplete with Highlight</small></div>
+        <hr>
+        <div id="autocomplete"></div>
+    </div>
+{% endblock content %}
+
+{% block scripts %}
+    <script src="{{ asset('js/midnight.min.js') }}"></script>
+{% endblock scripts %}
+

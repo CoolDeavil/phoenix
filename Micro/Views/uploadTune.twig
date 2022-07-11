@@ -1,0 +1,51 @@
+{% extends 'layout/master.twig' %}
+{% block head %}
+    <link rel="stylesheet" href="{{ asset('css/upload.min.css') }}">
+{% endblock head %}
+
+{% block content %}
+    <div class="container-fluid appContent" >
+        <div class="title">Upload<small>Gadgets Tuning & Styling</small></div>
+        <div class="row">
+            <div class="col-3">
+                <div id="uploader"></div>
+                <div id="dash"></div>
+            </div>
+            <div class="col-9">
+                <div class="success" id="success">
+                    <h3>The upload has finished. Check The Report.&emsp;<i class="fas fa-file"></i></h3>
+                </div>
+                <div id="canvas"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="sectionSeparator"></div>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-6">
+                <div class="wrap" style="padding: 1rem; background-color: whitesmoke; border: dashed 1px black; border-radius: 7px">
+                    <h3>ThumbNail</h3>
+                    <form action="http://192.168.8.18/api/back-end/thumb" method="post" enctype="multipart/form-data">
+                        <input type="file" name="image">
+                        <input type="submit" value="ThumbNail" name="submit">
+                    </form>
+                    <h3>Upload</h3>
+                    <form action="http://192.168.8.18/api/back-end" method="post" enctype="multipart/form-data">
+                        <input type="file" name="image">
+                        <input type="submit" value="Upload" name="submit">
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <div class="sectionSeparator"></div>
+    </div>
+{% endblock content %}
+
+{% block scripts %}
+    <script src="{{ asset('js/upload.min.js') }}"></script>
+{% endblock scripts %}
+

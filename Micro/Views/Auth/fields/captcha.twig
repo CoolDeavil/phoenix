@@ -1,0 +1,17 @@
+<div>
+    <div class="galRow">
+        <div class="col-10">
+            <img id='cImage' src='{{ decode(captcha) }}' alt="''" class='captcha'>
+        </div>
+        <div class="col-2">
+            <a class='btn' style='padding: 8px'>
+                <i id='resetCaptcha'
+                   class='fa fa-refresh fa-2x'
+                   onclick='{{ onClick }}'></i> Refresh
+            </a>
+        </div>
+    </div>
+    <div class="form-group" style="margin-top: 10px">
+        <input type="text" class="form-control" name="captcha"  placeholder="{{ placeholder }}" aria-label="">
+    </div>
+</div>

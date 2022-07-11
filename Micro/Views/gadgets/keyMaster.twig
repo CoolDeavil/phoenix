@@ -1,0 +1,22 @@
+{% extends 'layout/master.twig' %}
+{% block head %}
+    <link rel="stylesheet" href="{{ asset('css/keyMaster.min.css') }}">
+{% endblock head %}
+
+{% block content %}
+    <div class="container appContent" >
+        <div class="sectionSeparator"></div>
+        <div class="title">KeyMaster <small>Keyword input box</small></div>
+        <hr>
+        <div class="row">
+            <div class="col-12">
+                <div id="keyMaster"></div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block scripts %}
+    <script src="{{ asset('js/keyMaster.min.js') }}"></script>
+{% endblock scripts %}
+

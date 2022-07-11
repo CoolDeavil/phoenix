@@ -1,0 +1,80 @@
+
+
+$week_legend_color: #0c5460;
+$month_legend_color: $week_legend_color;
+$month_legend_color_hover: #ff4907;
+$calendar_days_color: #000000;
+$calendar_days_off_color: rgba(0,0,0,.6);
+$calendar_days_color_hover: $month_legend_color_hover;
+$navigation_icon_color: crimson;
+
+.mCard {
+  width: 250px;
+  display: table;
+  background-color: whitesmoke;
+
+  table {
+    width: 100%;
+    height: 100%;
+    thead {
+      td {
+        color: $week_legend_color;
+        font-weight: bolder;
+        vertical-align: center;
+        text-align: center;
+        .monthIndex {
+          color: $month_legend_color;
+          font-size: 1.2rem;
+
+          transition: color 400ms ease-in-out;
+          &:hover {
+            cursor: pointer!important;
+            color: $month_legend_color_hover;
+          }
+        }
+        .noEvents{
+          pointer-events: none;
+        }
+        .fas {
+          color: $navigation_icon_color;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    tbody {
+      td {
+        &.selected {
+          border-radius: 3px;
+          .cd {
+            color: orangered;
+          }
+        }
+        &.today {
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-image: url(../images/todayCircleBlue.png);
+        }
+
+        .cd {
+          font-size: 1rem;
+          font-weight: bolder;
+          color: $calendar_days_color;
+          vertical-align: center;
+          text-align: center;
+
+          &.offDay {
+            color: $calendar_days_off_color;
+          }
+          &:not(.offDay):hover{
+            color: $calendar_days_color_hover;
+            background-color: whitesmoke;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}

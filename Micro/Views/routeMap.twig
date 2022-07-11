@@ -1,0 +1,89 @@
+{% extends 'layout/master.twig' %}
+{% block head %}
+    <link rel="stylesheet" href="{{ asset('css/routes.min.css') }}">
+    <style>
+    </style>
+{% endblock head %}
+
+{% block content %}
+    <div class="container appContent">
+        <div class="sectionSeparator"></div>
+        <div class="container-fluid">
+            <div class="row">
+                {% set methods = ['GET', 'POST','PATCH','DELETE'] %}
+                <div class="col-12">
+                    {% for method_ in methods %}
+                        <div class="accordion"><span style="color: #4efd57;"> {{ routes[method_]|length }}     </span>{{ method_ }}  <i class="fas fa-chevron-circle-down" style="float: right"></i></div>
+                        <div class="panel">
+                            {#                {% for method_ in methods %}#}
+                            <table class="routes" style="background-color: #4efd57">
+                                <tbody>
+                                {% for route in routes[method_] %}
+                                    <tr>
+                                        <td >
+                                            <span> {{ route.route }}</span>
+                                        </td>
+                                        <td>
+                                            <span>{{ route.controller }}</span>
+                                        </td>
+                                        <td>
+                                            <span>{{ route.action }}</span>
+                                        </td>
+                                        <td>
+                                            <code style="display: flex;flex-direction: row">
+
+                                                {#                                        {% if param.key|length < 1%}#}
+                                                {#                                            *#}
+                                                {#                                        {% else %}#}
+                                                {% for param in route.parameters %}
+                                                    {{ param.key }} => {{ param.value }}<br>
+                                                {% endfor %}
+
+                                                {#                                        {% endif %}#}
+
+                                            </code>
+                                        </td>
+                                    </tr>
+
+                                {% endfor %}
+
+                                </tbody>
+
+                            </table>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+        </div>
+        <div class="sectionSeparator"></div>
+    </div>
+{#    <script type="application/javascript">#}
+{#        window.onload = () => {#}
+
+{#            console.log("Scrip Loaded")#}
+{#            let acc = document.getElementsByClassName("accordion");#}
+{#            let i;#}
+
+{#            for (i = 0; i < acc.length; i++) {#}
+{#                acc[i].addEventListener("click", function () {#}
+{#                    this.classList.toggle("active");#}
+{#                    let panel = this.nextElementSibling;#}
+{#                    if (panel.style.display === "block") {#}
+{#                        panel.style.display = "none";#}
+{#                    } else {#}
+{#                        panel.style.display = "block";#}
+{#                    }#}
+{#                });#}
+{#            }#}
+
+{#        }#}
+{#    </script>#}
+
+{% endblock content %}
+
+{% block scripts %}
+     <script src="{{ asset('js/routes.min.js') }}"></script>
+{% endblock scripts %}
+
+

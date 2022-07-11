@@ -1,0 +1,60 @@
+{% extends 'layout/master.twig' %}
+{% block head %}
+    <link rel="stylesheet" href="{{ asset('css/avatarUpdate.min.css') }}">
+{% endblock head %}
+
+{% block content %}
+    <div class="container-fluid appContent">
+        <div class="row">
+            <div class="col-6">
+                <div class="sectionSeparator"></div>
+                <div class="title">Image Avatar Crop <small>Select an image and crop your avatar</small></div>
+                <a class="btn btn-warning" href="{{ url('authUserService.show',{id:1}) }}" >Back To Profile</a>
+{#                <a class="btn btn-warning" href="{{ url('authUserService.show',{id:appUser.getID()}) }}" >Back To Profile</a>#}
+                <button class="btn btn-info" id="fakeButton">Select Images</button>
+                <button class="btn btn-success" id="confirmCrop">Confirm Cropped Avatar</button>
+                <hr>
+            </div>
+            <div class="col-6 text-center">
+                <img src="{{ appUser.getAvatar() }}" id="cropped" alt="" style="border-radius: 100%">
+                <hr>
+                <div class="row">
+                    <div class="col-12">
+                        <form enctype="multipart/form-data"  action="{{ asset('/api/auth/avatarCrop') }}" method="post" id="debug">
+                            <label for="image">Image</label>Image<input type="file" name="image" id="image" alt=""><br>
+                            <label for="top"></label>top<input type="number" name="top" id="top" alt=""><br>
+                            <label for="left"></label>left<input type="number" name="left" id="left" alt=""><br>
+                            <label for="width"></label>width<input type="number" name="width" id="width" alt=""><br>
+                            <label for="height"></label>height<input type="number" name="height" id="height" alt=""><br>
+                            <input type="submit" value="VALIDATE">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div id="canvas" class="untouched"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <form action="{{ '/api/avatarCrop' }}" style="display: none">
+                    <input type="file" id="fileSelect">
+                </form>
+            </div>
+        </div>
+        <div class="sectionSeparator"></div>
+    </div>
+{% endblock content %}
+
+{% block scripts %}
+    <script>
+       window['userAvatar'] = '{{ appUser.getAvatar() }}';
+       window['user_id'] = '{{ appUser.getID() }}';
+       window['url_confirm_avatar'] = '{{ url('authUserService.confirmAvatarCrop') }}';
+       window['url_user_profile'] = '{{ url('authUserService.show',{id:appUser.getID()}) }}';
+    </script>
+    <script src="{{ asset('js/avatarUpdate.min.js') }}"></script>
+{% endblock scripts %}
+

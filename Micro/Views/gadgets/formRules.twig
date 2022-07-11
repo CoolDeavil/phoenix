@@ -1,0 +1,172 @@
+{% extends 'layout/master.twig' %}
+{% block head %}
+    <link rel="stylesheet" href="{{ asset('css/formRules.min.css') }}">
+{% endblock head %}
+
+{% block content %}
+    <div class="container appContent" >
+        <div class="sectionSeparator"></div>
+        <div class="row">
+            <div class="col-8">
+                <form id="lucille" method="post" action="">
+                    <div class="title">Sample Form<small>Typescript Front End Validation</small></div>
+                    <hr>
+                    <div class="form-group">
+                        <input type="text" name="userName" class="form-control form-control-sm" placeholder="Your User Name" aria-label="">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" class="form-control form-control-sm" placeholder="Enter email" aria-label="">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" class="form-control form-control-sm" placeholder="Password" aria-label="">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="confirmPassword" class="form-control form-control-sm" placeholder="Confirm the Password" aria-label="">
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="form-group">
+                                <input type="number" name="age" class="form-control form-control-sm" placeholder="Your Age" aria-label="">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <input type="text" name="mobile" class="form-control form-control-sm" placeholder="Your mobile number" aria-label="">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <select name="lang" class="form-control form-control-sm" aria-label="" id="language">
+                                    <option value="0" data-image="http://192.168.10.11/./images/placeholder.png">Language</option>
+                                    <option value="1" data-image="http://192.168.10.11/./images/pt.png">Portuguese</option>
+                                    <option value="2" data-image="http://192.168.10.11/./images/en.png">English</option>
+                                    <option value="3" data-image="http://192.168.10.11/./images/fr.png">French</option>
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="form-group">
+                                <input type="file" name="upload" class="form-control form-control-file form-control-sm"  >
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <label>Start</label>
+                            <input type="date" name="dateStart"  class="form-control form-control-sm">
+                        </div>
+                        <div class="col-4">
+                            <label>End</label>
+                            <input type="date" name="dateEnd"   class="form-control form-control-sm">
+
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="radios" value="option1" aria-label="">
+                                <label class="form-check-label">
+                                    Red
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="radios" value="option2" aria-label="">
+                                <label class="form-check-label">
+                                    Green
+                                </label>
+                            </div>
+                            <div class="form-check disabled">
+                                <input class="form-check-input" type="radio" name="radios"  value="option3" aria-label="">
+                                <label class="form-check-label">
+                                    Blue
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <select multiple name="multiple" id="brands" aria-label="">
+                                    <option value="0" data-image="./images/placeholder.png">Select a car brand</option>
+                                    <option value="1" data-image="./images/Audi-logo.png">Audi</option>
+                                    <option value="2" data-image="./images/Bentley-Logo-300x159.jpg">Bentley</option>
+                                    <option value="3" data-image="./images/bugatti-logo.jpg">Bugatti</option>
+                                    <option value="4" data-image="./images/Dodge-Logo.jpg">Dodge</option>
+                                    <option value="5" data-image="./images/Hummer-logo.png" >Hummer</option>
+                                    <option value="6" data-image="./images/jaguar-cars-logo1.jpg" >Jaguar</option>
+                                    <option value="7" data-image="./images/Rolls-Royce-Logo-173x300.jpg">Rolls-Royce</option>
+                                    <option value="8" data-image="./images/Shelby-logo.png">Shelby</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-check">
+                        <input type="checkbox" name="terms" class="form-check-input largerCheckbox" aria-label="">
+                        <label class="form-check-label">Agree With the site <a href="#">Terms & conditions</a></label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" name="remember" class="form-check-input largerCheckbox" aria-label="">
+                        <label class="form-check-label">Remember Me</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" name="logMe" class="form-check-input largerCheckbox" aria-label="">
+                        <label class="form-check-label">Keep me Logged</label>
+                    </div>
+                    <hr>
+                    <input type="submit" class="btn btn-secondary" value="REGISTER" style="width: 100%">
+                </form>
+            </div>
+            <div class="col-4">
+                <div class="title">Validations <small>Built in Validations</small></div>
+                <hr style="border-bottom: 2px solid darkcyan">
+                <ul class="validations">
+                    <li><strong>min</strong><br>Validates min value for a number</li>
+                    <li><strong>max</strong><br>Validates max value for a number</li>
+                    <li><strong>range</strong><br>Validates max and min value for a field</li>
+                    <li><strong>validEmail</strong><br>Validates email address syntax</li>
+                    <li><strong>mobileNumber</strong><br>Validates if mobile number is correct</li>
+                    <li><strong>required</strong><br>Validates if field is not empty</li>
+                    <li><strong>fieldMatch</strong><br>Validates if two given fields are equal</li>
+                    <li><strong>dateRange</strong><br>Validates date ranges</li>
+                    <li><strong>securePassword</strong><br>Validates a secure password <small>Min 8 char, min 1 lower case, min 1 upper case and a digit or special char</small></li>
+                    <li><strong>custom Validations</strong><br>Just make your´s, and adjust to any situation needed </li>
+                </ul>
+            </div>
+        </div>
+
+        <div>
+            <h1 id="unicode"></h1>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-4">
+                <div class="eRor" data-name="upload">Custom error Label .</div>
+                <div class="eRor" data-name="dateStart">Custom error Label .</div>
+                <div class="eRor" data-name="dateEnd">Custom error Label .</div>
+                <div class="eRor" data-name="radios">Custom error Label .</div>
+            </div>
+            <div class="col-4">
+                <div class="eRor" data-name="multiple">Custom error Label .</div>
+                <div class="eRor" data-name="terms"></div>
+                <div class="eRor" data-name="userName">Custom error Label .</div>
+                <div class="eRor" data-name="email">Custom error Label .</div>
+                <div class="eRor" data-name="password">Custom error Label .</div>
+            </div>
+            <div class="col-4">
+                <div class="eRor" data-name="lang">Custom error Label .</div>
+                <div class="eRor" data-name="age">Custom error Label .</div>
+                <div class="eRor" data-name="mobile">Custom error Label .</div>
+                <div class="eRor" data-name="confirmPassword">Custom alert Label .</div>
+            </div>
+        </div>
+
+        <div class="sectionSeparator"></div>
+    </div>
+{% endblock content %}
+
+{% block scripts %}
+    <script src="{{ asset('js/formRules.min.js') }}"></script>
+{% endblock scripts %}
+
